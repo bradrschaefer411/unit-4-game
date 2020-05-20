@@ -1,111 +1,93 @@
-//id's in html to link to js:
-//<div id="winningScore">Score to Match:</div>
-//<div id="winsTotal">Wins:</p>
-//<div id="lossesTotal">Losses:</p>
-//<div id="ruby">Ruby</div>
-//<div id="diamond">Diamond</div>
-//<div id="gold">Gold</div>
-//<div id="emerald">Emerald</div>
-//<div id="totalScore">Your Total Score Is:</div>
-//<div id="scoreDisplay">" "</div>
+$( document ).ready(function(){
+  var Random=Math.floor(Math.random()*101+19)
+  // Selects a random number to be shown at the start of the game
+  // Number should be should be between 19 - 120
+  $('#randomNumber').text(Random);
 
-//pseudocode:
-//At start of game, there are: 4 minerals displayed on page, 
-//Each representing a different point total to add to user score.
-//player will click the gems in order to raise their score in hopes of
-//matching the winningScore. If player matches their score (totalScore) to
-//the winningScore, wins + 1. If player's totalScore goes over winningScore
-//total, losses + 1.  Game resets after win/loss is determined, new winningScore
-//picked, each gem takes on a different/random value.
 
-//variables to use:
-var winsTotal = 0;
-var lossesTotal = 0;
-var winningScore = 0;
-var totalScore = 0;
-var rubyPoints = " ";
-var diamondPoints = " ";
-var goldPoints = " ";
-var emeraldPoints = " ";
+  var num1= Math.floor(Math.random()*11+1)
+  var num2= Math.floor(Math.random()*11+1)
+  var num3= Math.floor(Math.random()*11+1)
+  var num4= Math.floor(Math.random()*11+1)
 
-//calls start Game function
-startGame();
+  var userTotal= 0; 
+  var wins= 0;
+  var losses = 0;
 
-//function for starting game: display random winningScore, sets all player totals to 0, chooses
-//random points for gems to be added to scoreDisplay
-function startGame() {
-    winningScore = generateWinningScore(75, 150);
-    updateWinningScore();
-    updateTotalScore();
-    updateWinsTotal();
-    updateLossesTotal();
-    mineralPoints(1, 12);
-    totalScore = 0;
+$('#numberWins').text(wins);
+$('#numberLosses').text(losses);
+
+function reset(){
+      Random=Math.floor(Math.random()*101+19);
+      console.log(Random)
+      $('#randomNumber').text(Random);
+      num1= Math.floor(Math.random()*11+1);
+      num2= Math.floor(Math.random()*11+1);
+      num3= Math.floor(Math.random()*11+1);
+      num4= Math.floor(Math.random()*11+1);
+      userTotal= 0;
+      $('#finalTotal').text(userTotal);
+      } 
+
+function yay(){
+alert("You won!");
+  wins++; 
+  $('#numberWins').text(wins);
+  reset();
 }
 
-//function to generate winningScore 
-function generateWinningScore(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-//function to display winningScore
-function updateWinningScore() {
-    document.getElementById("winningScore").innerHTML = "Score to Match: " + winningScore;
-}
-//function to display current player score (scoreDisplay)
-function updateTotalScore() {
-    document.getElementById("totalScore").innerHTML = " " + totalScore;
-}
-//function to display winsTotal
-function updateWinsTotal() {
-    document.getElementById("winsTotal").innerHTML = "Wins: " + winsTotal;
-}
-//function to display lossesTotal
-function updateLossesTotal() {
-    document.getElementById("lossesTotal").innerHTML = "Losses: " + lossesTotal;
-}
-function compare() {
-    updateTotalScore();
-    if (totalScore === winningScore) {
-        winsTotal++;
-        updateWinsTotal();
-        alert("You win!");
-        startGame();
-        
-    }
-    if (totalScore > winningScore) {
-        lossesTotal++;
-        updateLossesTotal();
-        alert("You lose!");
-        startGame();
-    }
+function loser(){
+alert ("You lose!");
+  losses++;
+  $('#numberLosses').text(losses);
+  reset()
 }
 
-//functions to set up values of minerals, random values from 1 to 12 to each mineral
-function mineralPoints(min, max) {
-    rubyPoints = Math.floor(Math.random() * (max - min + 1) + min);
-    diamondPoints = Math.floor(Math.random() * (max - min + 1) + min);
-    goldPoints = Math.floor(Math.random() * (max - min + 1) + min);
-    emeraldPoints = Math.floor(Math.random() * (max - min + 1) + min);
-    //logs each gem value to console during each round
-    console.log("Ruby: " + rubyPoints + ", Diamond: " + diamondPoints + ", Gold: " + goldPoints + ", Emerald: " + emeraldPoints);
-}
+  $('#one').on ('click', function(){
+    userTotal = userTotal + num1;
+    console.log("New userTotal= " + userTotal);
+    $('#finalTotal').text(userTotal); 
+          
+        if (userTotal == Random){
+          yay();
+        }
+        else if ( userTotal > Random){
+          loser();
+        }   
+  })  
+  $('#two').on ('click', function(){
+    userTotal = userTotal + num2;
+    console.log("New userTotal= " + userTotal);
+    $('#finalTotal').text(userTotal); 
+        if (userTotal == Random){
+          yay();
+        }
+        else if ( userTotal > Random){
+          loser();
+        } 
+  })  
+  $('#three').on ('click', function(){
+    userTotal = userTotal + num3;
+    console.log("New userTotal= " + userTotal);
+    $('#finalTotal').text(userTotal);
 
-//jquery for on click events/button clicks
-$(document).ready(function() {
-    $("#ruby").on("click", function()  {
-        totalScore = totalScore + rubyPoints;
-        compare();
-    });
-    $("#diamond").on("click", function() {
-        totalScore = totalScore + diamondPoints;
-        compare();
-    });
-    $("#gold").on("click", function() {
-        totalScore = totalScore + goldPoints;
-        compare();
-    });
-    $("#emerald").on("click", function() {
-        totalScore = totalScore + emeraldPoints;
-        compare();
-    });
-});s
+          if (userTotal == Random){
+          yay();
+        }
+        else if ( userTotal > Random){
+          loser();
+        } 
+  })  
+  $('#four').on ('click', function(){
+    userTotal = userTotal + num4;
+    console.log("New userTotal= " + userTotal);
+    $('#finalTotal').text(userTotal); 
+      
+          if (userTotal == Random){
+          yay();
+        }
+        else if ( userTotal > Random){
+          loser();
+        }
+  });   
+}); 

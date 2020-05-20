@@ -1,70 +1,63 @@
-#main-title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 65px;
-    text-align: center;
-    color: rgba(255, 0, 0, 0.466);
+body{
+	background-image: url("../images/diamond.jpg")
 }
-.rules-text {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 25px;
-    text-align: center;
-    color: rgb(251, 255, 0);
-    
+div{
+	background-color: white;
+	margin: 10px;
+	width: 25%
 }
-.col {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
+div{
+	border: solid 2px antiquewhite;
+	padding: 10px;
 }
-#totalScore {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40px;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    text-align: center;
-    border-color: black;
+h1, h3, span{
+	font-weight: bold;
+	text-align: center;
 }
-
-#ruby {
-    background-image: url(../images/ruby.png);
-    background-size: cover; 
-    width: 150px;
-    height: 150px;
-    border-color: black;
-    
+h1{
+	font-size: 30pt;
 }
-#diamond {
-    background-image: url(../images/diamond.png);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    background-position: top;
-    border-color: black;
+ol{
+	list-style: decimal inside; 
 }
-#gold {
-    background-image: url(../images/gold.png);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    border-color: black;
+ul {
+	list-style: disc inside;
+	text-indent: 20px;
 }
-#emerald {
-    background-image: url(../images/emerald.png);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    border-color: black;
+/* Specfic Elements*/
+div.header, div.gems{
+	background-color: #e0e0eb;
 }
-
-.jumbotron {
-    background-image: url(../images/minecraft.jpg);
-    background-color: #a57900;
-    background-size: cover;
-    width: 100%;
-    height: 50%;
+div.header, div.instructions{
+	width: 50%;
 }
-#card-wrap {
-    border-color: black;
+/* Classes */
+.numberToMatch, .winsAndLosses{
+	float: left;
+	width: 15%;
+	height: 60px;
+}
+.userTotal{
+	width: 15%;
+	height: 60px;
+}
+.gems{
+	clear: both;
+}
+.gemImage{
+	height: 60px;
+	margin: 10px;
+}
+/* IDs */
+#blue{
+	color: #3092c7;
+}
+#green{
+	color: #00aa59;
+}
+#red{
+	color: #ec4b5f;
+}
+#yellow{
+	color: #ffc225;
 }
